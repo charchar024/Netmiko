@@ -1,0 +1,24 @@
+from netmiko import ConnectHandler
+import getpass
+import datetime
+
+passWord = getpass.getpass()
+IP_LIST = open('hosts.txt','r')
+
+for IP in IP_LIST
+	RTR = { 
+				'device_type': 'cisco_ios',
+				'ip': IP,
+				'username' : 'jasoncharchar.admin',
+				'password' : passWord
+				}
+	print("Connecting to " + IP)
+	net_connect= ConnectHandler(**RTR)
+	output = net_connect.send_command_from_file(config_file = 'commands.txt')
+	print(output)
+	file = open(IP + '_output.txt', 'w')
+	files = open('appended.txt', 'a')
+	file.write(output)
+	files.write(output)
+	
+	
